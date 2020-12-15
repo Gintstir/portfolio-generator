@@ -31,7 +31,6 @@ const promptUser = () => {
                     return false;
                 }
             }
-
         },
         {
             type: 'confirm',
@@ -55,15 +54,16 @@ const promptUser = () => {
 };
 
 const promptProject = portfolioData => {
-    //if there's no 'projects' array property, create one
-    if (!portfolioData.projects) {
-    portfolioData.projects = [];
-    }
+    
     console.log(`
     =================
     Add a New Project
     =================
     `);
+    //if there's no 'projects' array property, create one
+    if (!portfolioData.projects) {
+        portfolioData.projects = [];
+        }
 
     return inquirer.prompt([
        {
@@ -96,7 +96,7 @@ const promptProject = portfolioData => {
            type: 'checkbox',
            name: 'languages',
            message: 'What did you build this project with? (Check all that apply)',
-           choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'JQuery', 'Bootstrap', 'Bulma', 'Node', ]
+           choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'JQuery', 'Bootstrap', 'Bulma', 'Node' ]
        },
        {
            type: 'input',
@@ -146,7 +146,7 @@ promptUser()
 // const pageHTML = generatePage(name, github);
 
 // fs.writeFile('./index.html', pageHTML, err => {
-//     if(err) throw err;
+//     if(err) throw new Error(err);
 
-//     console.log('Portfolio complete! Check out index.html to see the output!');
+//     console.log('Page Completed! Check out index.html in this directory to see it!');
 // });
