@@ -4,9 +4,11 @@ const generatePage = require('./src/page-template.js');
 
 const profileDataArgs = process.argv.slice(2);
 
+console.log(profileDataArgs);
+
 const [name, github] = profileDataArgs;
 
-//console.log(profileDataArgs);
+console.log(name, github);
 
 //Notice the lack of parentheses around the 'profileDataArr' parameter?
 // const printProfileData = profileDataArr => {
@@ -24,9 +26,9 @@ const [name, github] = profileDataArgs;
 
 // printProfileData(profileDataArgs);
 
+const pageHTML = generatePage(name, github);
 
-
-fs.writeFile('./index.html', generatePage(name, github), err => {
+fs.writeFile('./index.html', pageHTML, err => {
     if(err) throw new Error(err);
 
     console.log('Portfolio complete! Check out index.html to see the output!');
